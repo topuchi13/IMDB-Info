@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19158" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19141"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Details View-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="DetailsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="DetailsView" customModule="IMDB_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iow-JT-RT5">
+                                <rect key="frame" x="5" y="44" width="404" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="t7s-bi-N1Q"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zo7-aO-mOU">
+                                <rect key="frame" x="5" y="554" width="404" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMDB Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtW-ch-1h5">
+                                <rect key="frame" x="5" y="585" width="404" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iE-2n-Key">
+                                <rect key="frame" x="5" y="608" width="404" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="230" id="eWq-8E-hgo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Iow-JT-RT5" secondAttribute="trailing" constant="5" id="Ljr-iF-f6o"/>
+                            <constraint firstItem="Iow-JT-RT5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Oxp-Bh-wky"/>
+                            <constraint firstItem="Iow-JT-RT5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="PWp-G0-X3f"/>
+                            <constraint firstItem="0iE-2n-Key" firstAttribute="top" secondItem="LtW-ch-1h5" secondAttribute="bottom" constant="5" id="Qwy-05-xjd"/>
+                            <constraint firstItem="zo7-aO-mOU" firstAttribute="top" secondItem="Iow-JT-RT5" secondAttribute="bottom" constant="10" id="ZG7-1T-E25"/>
+                            <constraint firstItem="LtW-ch-1h5" firstAttribute="trailing" secondItem="zo7-aO-mOU" secondAttribute="trailing" id="ciL-34-cXu"/>
+                            <constraint firstItem="LtW-ch-1h5" firstAttribute="leading" secondItem="zo7-aO-mOU" secondAttribute="leading" id="f84-Hu-Ixo"/>
+                            <constraint firstItem="0iE-2n-Key" firstAttribute="leading" secondItem="LtW-ch-1h5" secondAttribute="leading" id="j6f-O8-eJQ"/>
+                            <constraint firstItem="zo7-aO-mOU" firstAttribute="trailing" secondItem="Iow-JT-RT5" secondAttribute="trailing" id="lp8-Ge-hz1"/>
+                            <constraint firstItem="LtW-ch-1h5" firstAttribute="top" secondItem="zo7-aO-mOU" secondAttribute="bottom" constant="7" id="oSv-mP-d8w"/>
+                            <constraint firstItem="0iE-2n-Key" firstAttribute="trailing" secondItem="LtW-ch-1h5" secondAttribute="trailing" id="rwQ-IW-lrV"/>
+                            <constraint firstItem="zo7-aO-mOU" firstAttribute="leading" secondItem="Iow-JT-RT5" secondAttribute="leading" id="yOs-bX-HF5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainImage" destination="Iow-JT-RT5" id="rVf-d7-DRO"/>
+                        <outlet property="movieDescription" destination="0iE-2n-Key" id="mE5-EN-2pa"/>
+                        <outlet property="movieScore" destination="LtW-ch-1h5" id="D5c-0X-u5d"/>
+                        <outlet property="movieTitle" destination="zo7-aO-mOU" id="CH0-fL-Cye"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="72.991071428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
