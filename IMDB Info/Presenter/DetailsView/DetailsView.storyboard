@@ -16,6 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5BG-2O-mxm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iow-JT-RT5">
                                 <rect key="frame" x="5" y="44" width="404" height="400"/>
                                 <constraints>
@@ -44,10 +47,14 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="5BG-2O-mxm" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="9So-SM-p7g"/>
+                            <constraint firstItem="5BG-2O-mxm" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Hu4-Be-y7a"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Iow-JT-RT5" secondAttribute="trailing" constant="5" id="Ljr-iF-f6o"/>
                             <constraint firstItem="Iow-JT-RT5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Oxp-Bh-wky"/>
                             <constraint firstItem="Iow-JT-RT5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="PWp-G0-X3f"/>
                             <constraint firstItem="0iE-2n-Key" firstAttribute="top" secondItem="LtW-ch-1h5" secondAttribute="bottom" constant="5" id="Qwy-05-xjd"/>
+                            <constraint firstItem="5BG-2O-mxm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Wj6-Lx-EIg"/>
+                            <constraint firstAttribute="bottom" secondItem="5BG-2O-mxm" secondAttribute="bottom" id="Y6G-fy-AjQ"/>
                             <constraint firstItem="zo7-aO-mOU" firstAttribute="top" secondItem="Iow-JT-RT5" secondAttribute="bottom" constant="10" id="ZG7-1T-E25"/>
                             <constraint firstItem="LtW-ch-1h5" firstAttribute="trailing" secondItem="zo7-aO-mOU" secondAttribute="trailing" id="ciL-34-cXu"/>
                             <constraint firstItem="LtW-ch-1h5" firstAttribute="leading" secondItem="zo7-aO-mOU" secondAttribute="leading" id="f84-Hu-Ixo"/>
@@ -59,6 +66,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="5BG-2O-mxm" id="Ksx-OW-wyh"/>
                         <outlet property="mainImage" destination="Iow-JT-RT5" id="rVf-d7-DRO"/>
                         <outlet property="movieDescription" destination="0iE-2n-Key" id="mE5-EN-2pa"/>
                         <outlet property="movieScore" destination="LtW-ch-1h5" id="D5c-0X-u5d"/>

@@ -13,16 +13,18 @@ class DetailsView: UIViewController {
     @IBOutlet var mainImage: UIImageView!
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieScore: UILabel!
+    @IBOutlet var backgroundImage: UIImageView!
     @IBOutlet var movieDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        backgroundImage.alpha = 0.2
         // Do any additional setup after loading the view.
     }
     
     func makeView(_ movie: Movie) {
         mainImage.kf.setImage(with: URL(string: "\(imagePrefix)\(movie.largeImage)"))
+        backgroundImage.kf.setImage(with: URL(string: "\(imagePrefix)\(movie.largeImage)"))
         movieTitle.text = movie.movieTitle
         movieScore.text = "IMDB Score: \(String(movie.score))"
         movieDescription.text = "Description: \(movie.overview)"
