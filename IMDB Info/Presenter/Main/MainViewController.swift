@@ -12,15 +12,17 @@ class MainViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     let fetch = FetchMovieList()
     var movies = [Movie]()
+    let nowInTheaters = "https://api.themoviedb.org/3/movie/now_playing?api_key=b688d2e3d40e21d185f1dd90d122a568&language=en-US&page=1"
+    let testSearch = "https://api.themoviedb.org/3/search/movie?api_key=b688d2e3d40e21d185f1dd90d122a568&language=en-US&query=Dune&page=1&include_adult=false"
     
     override func viewDidLoad() {
-        fetch.fetchMovieList { movielist in
+        super.viewDidLoad()
+        fetch.fetchMovieList(with: nowInTheaters) { movielist in
             self.movies = movielist.results
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
-        super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
@@ -35,8 +37,7 @@ extension MainViewController: UITableViewDelegate {
         let vc = sb.instantiateViewController(withIdentifier: "DetailsView") as! DetailsView
         let _ = vc.view
         vc.makeView(movies[indexPath.row])
-        self.navigationController?.pushViewController(vc, animated: true)
-        
+        self.present(vc, animated: true)
     }
 }
 

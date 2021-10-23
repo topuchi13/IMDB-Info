@@ -8,11 +8,11 @@
 import Foundation
 
 struct Movie: Codable {
-    var listImage: String
+    var listImage: String?
     var id: Int
     var movieTitle: String
     var overview: String
-    var largeImage: String
+    var largeImage: String?
     var score: Double
     
     

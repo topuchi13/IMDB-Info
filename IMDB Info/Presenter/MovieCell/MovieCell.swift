@@ -30,7 +30,7 @@ class MovieCell: UITableViewCell {
     }
     
     func makeNew(_ movie: Movie) {
-        listImageView.kf.setImage(with: URL(string: "\(imagePrefix)\(movie.listImage)"))
+        listImageView.kf.setImage(with: URL(string: "\(imagePrefix)\(movie.listImage ?? "fCayJrkfRaCRCTh8GqN30f8oyQF.jpg")"))
         movieTitle.text = movie.movieTitle
         movieScore.text = "\(String(movie.score))"
     }
