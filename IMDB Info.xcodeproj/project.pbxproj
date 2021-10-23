@@ -111,6 +111,7 @@
 		0D939B8127204E2C00070B71 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				0DC250DE2723E5BD0053952F /* NowInTheaters */,
 				0DFF582D27209506000A8913 /* DetailsView */,
 				0D939B8327204E4600070B71 /* MovieCell */,
 				0D939B8227204E3300070B71 /* Main */,
@@ -144,6 +145,13 @@
 				0DAE898927231F31001538B7 /* SearchViewController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		0DC250DE2723E5BD0053952F /* NowInTheaters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NowInTheaters;
 			sourceTree = "<group>";
 		};
 		0DFF582D27209506000A8913 /* DetailsView */ = {

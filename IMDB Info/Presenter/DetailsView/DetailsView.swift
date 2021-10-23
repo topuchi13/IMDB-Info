@@ -23,8 +23,8 @@ class DetailsView: UIViewController {
     }
     
     func makeView(_ movie: Movie) {
-        mainImage.kf.setImage(with: URL(string: "\(imagePrefix)\(movie.largeImage ?? "fCayJrkfRaCRCTh8GqN30f8oyQF.jpg")"))
-        backgroundImage.kf.setImage(with: URL(string: "\(imagePrefix)\(movie.largeImage ?? "fCayJrkfRaCRCTh8GqN30f8oyQF.jpg")"))
+        mainImage.kf.setImage(with: URL(string: "\(imagePrefix)\(movie.largeImage ?? "")"))
+        backgroundImage.kf.setImage(with: URL(string: "\(imagePrefix)\(movie.largeImage ?? "")"))
         movieTitle.text = movie.movieTitle
         movieScore.text = "IMDB Score: \(String(movie.score))"
         movieDescription.text = "Description: \(movie.overview)"
