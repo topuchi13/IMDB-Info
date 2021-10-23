@@ -3,8 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19141"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,47 +16,23 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="HQw-yb-ien"/>
-                        <segue destination="SQt-fF-4pK" kind="relationship" relationship="viewControllers" id="PgJ-pu-RBc"/>
+                        <segue destination="xZz-S9-hPK" kind="relationship" relationship="viewControllers" id="2WB-DT-Hr4"/>
+                        <segue destination="SQt-fF-4pK" kind="relationship" relationship="viewControllers" id="QsS-Cf-gHh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v85-F9-McC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-845" y="-98"/>
         </scene>
-        <!--🍿 Now in Theaters 🍿-->
-        <scene sceneID="tne-QT-ifu">
+        <!--NowInTheaters-->
+        <scene sceneID="SpE-Ej-kZs">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="IMDB_Info" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zww-wV-gLI">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Zww-wV-gLI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2Gq-m4-NiS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zww-wV-gLI" secondAttribute="bottom" id="DjK-EU-xg5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zww-wV-gLI" secondAttribute="trailing" id="E7s-PJ-oYE"/>
-                            <constraint firstItem="Zww-wV-gLI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="c12-ao-RLV"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Now in Theaters" image="book.fill" catalog="system" id="ljR-W7-zLP"/>
-                    <navigationItem key="navigationItem" title="🍿 Now in Theaters 🍿" id="7t5-MD-5we">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="ASF-v1-h7v"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="Zww-wV-gLI" id="ZAo-6E-QWA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="NowInTheaters" referencedIdentifier="NowInTheaters" id="xZz-S9-hPK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="iDQ-4C-oXF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MxY-NY-zGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="-323"/>
+            <point key="canvasLocation" x="377" y="-254"/>
         </scene>
         <!--SearchViewController-->
         <scene sceneID="Wcj-LH-Mac">
@@ -72,10 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="book.fill" catalog="system" width="128" height="95"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
