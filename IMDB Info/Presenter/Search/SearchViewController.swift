@@ -29,9 +29,10 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print ("search button clicked")
+        searchBar.resignFirstResponder()
         if let text = searchBar.text {
-            let searchQuary = SearchConstructor(with: text)
+            let spacesFilteredText = text.replacingOccurrences(of: " ", with: "+")
+            let searchQuary = SearchConstructor(with: spacesFilteredText)
             fetch.fetchMovieList(with: searchQuary) { movielist in
                 self.movies = movielist.results
                 
