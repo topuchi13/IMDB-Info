@@ -37,7 +37,6 @@ extension SearchViewController: UISearchBarDelegate{
                 self.movies = movielist.results
                 
                 DispatchQueue.main.async {
-                    print (self.movies)
                     self.searchTableView.reloadData()
                 }
             }
