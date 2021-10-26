@@ -10,16 +10,16 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet private var searchBar: UISearchBar!
-    @IBOutlet private var searchTableView: UITableView!
+    @IBOutlet private weak var searchCollectionView: UICollectionView!
     private let fetch = FetchMovieList()
     private var movies = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        searchTableView.dataSource = self
-        searchTableView.delegate = self
-        searchTableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
+        searchCollectionView.dataSource = self
+        searchCollectionView.delegate = self
+        searchCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
         // Do any additional setup after loading the view.
     }
 
@@ -35,10 +35,9 @@ extension SearchViewController: UISearchBarDelegate{
                 self.movies = movielist.results
                 
                 DispatchQueue.main.async {
-                    self.searchTableView.reloadData()
+                    self.searchCollectionView.reloadData()
                 }
             }
-        
     }
     
     
@@ -51,17 +50,15 @@ extension SearchViewController: UISearchBarDelegate{
                 self.movies = movielist.results
                 
                 DispatchQueue.main.async {
-                    self.searchTableView.reloadData()
+                    self.searchCollectionView.reloadData()
                 }
             }
         }
     }
 }
 
-
-
-extension SearchViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "DetailsView", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DetailsView") as! DetailsView
         let _ = vc.view
@@ -70,16 +67,17 @@ extension SearchViewController: UITableViewDelegate {
     }
 }
 
-extension SearchViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+extension SearchViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         movies.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        cell.makeNew(movies[indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = searchCollectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
+        cell.makeView(movies[indexPath.row])
         return cell
     }
     
-    
 }
+
