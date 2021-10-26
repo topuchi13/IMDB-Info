@@ -9,10 +9,10 @@ import UIKit
 import Kingfisher
 
 class MovieCell: UITableViewCell {
-    let imagePrefix = "https://image.tmdb.org/t/p/w500/"
-    @IBOutlet var listImageView: UIImageView!
-    @IBOutlet var movieTitle: UILabel!
-    @IBOutlet var movieScore: UILabel!
+    private let imagePrefix = "https://image.tmdb.org/t/p/w500/"
+    @IBOutlet private var listImageView: UIImageView!
+    @IBOutlet private var movieTitle: UILabel!
+    @IBOutlet private var movieScore: UILabel!
     
     
     override func awakeFromNib() {

@@ -9,12 +9,12 @@ import UIKit
 import Kingfisher
 
 class DetailsView: UIViewController {
-    let imagePrefix = "https://image.tmdb.org/t/p/w500/"
-    @IBOutlet var mainImage: UIImageView!
-    @IBOutlet var movieTitle: UILabel!
-    @IBOutlet var movieScore: UILabel!
-    @IBOutlet var backgroundImage: UIImageView!
-    @IBOutlet var movieDescription: UILabel!
+    private let imagePrefix = "https://image.tmdb.org/t/p/w500/"
+    @IBOutlet private var mainImage: UIImageView!
+    @IBOutlet private var movieTitle: UILabel!
+    @IBOutlet private var movieScore: UILabel!
+    @IBOutlet private var backgroundImage: UIImageView!
+    @IBOutlet private var movieDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,12 +9,10 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    @IBOutlet var searchBar: UISearchBar!
-    
-    
-    @IBOutlet var searchTableView: UITableView!
-    let fetch = FetchMovieList()
-    var movies = [Movie]()
+    @IBOutlet private var searchBar: UISearchBar!
+    @IBOutlet private var searchTableView: UITableView!
+    private let fetch = FetchMovieList()
+    private var movies = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +26,22 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UISearchBarDelegate{
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let text = searchText
+            let spacesFilteredText = text.replacingOccurrences(of: " ", with: "+")
+            let searchQuary = SearchConstructor(with: spacesFilteredText)
+            fetch.fetchMovieList(with: searchQuary) { movielist in
+                self.movies = movielist.results
+                
+                DispatchQueue.main.async {
+                    self.searchTableView.reloadData()
+                }
+            }
+        
+    }
+    
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         if let text = searchBar.text {
@@ -43,6 +57,7 @@ extension SearchViewController: UISearchBarDelegate{
         }
     }
 }
+
 
 
 extension SearchViewController: UITableViewDelegate {

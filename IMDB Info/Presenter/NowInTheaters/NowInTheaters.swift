@@ -8,11 +8,11 @@
 import UIKit
 
 class NowInTheaters: UIViewController {
-
-    @IBOutlet var tableView: UITableView!
-    let fetch = FetchMovieList()
-    var movies = [Movie]()
-    let nowInTheaters = "https://api.themoviedb.org/3/movie/now_playing?api_key=b688d2e3d40e21d185f1dd90d122a568&language=en-US&page=1"
+    
+    @IBOutlet private var tableView: UITableView!
+    private let fetch = FetchMovieList()
+    private var movies = [Movie]()
+    private let nowInTheaters = "https://api.themoviedb.org/3/movie/now_playing?api_key=b688d2e3d40e21d185f1dd90d122a568&language=en-US&page=1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,33 +22,42 @@ class NowInTheaters: UIViewController {
                 self.tableView.reloadData()
             }
         }
+        
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "MovieCollectionView", bundle: nil), forCellReuseIdentifier: "MovieCollectionView")
+        tableView.register(UINib(nibName: "FeaturedCell", bundle: nil), forCellReuseIdentifier: "FeaturedCell")
         tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
     }
 }
 
 
 extension NowInTheaters: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sb = UIStoryboard(name: "DetailsView", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "DetailsView") as! DetailsView
-        let _ = vc.view
-        vc.makeView(movies[indexPath.row])
-        self.present(vc, animated: true)
-    }
+
 }
 
 extension NowInTheaters: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        movies.count
+        2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        cell.makeNew(movies[indexPath.row])
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FeaturedCell", for: indexPath) as! FeaturedCell
+            cell.makeNew(movies[indexPath.row])
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCollectionView", for: indexPath) as! MovieCollectionView
+        cell.movies = self.movies
+        cell.delegate = self
         return cell
     }
     
-    
+}
+
+extension NowInTheaters: MovieCollectionViewDelegate {
+    func openSelection(this vc: UIViewController) {
+        self.present(vc, animated: true, completion: nil)
+    }
 }

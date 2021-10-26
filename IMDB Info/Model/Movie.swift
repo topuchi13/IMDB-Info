@@ -10,6 +10,7 @@ import Foundation
 struct Movie: Codable {
     var listImage: String?
     var id: Int
+    var genreIDs: [Int]
     var movieTitle: String
     var overview: String
     var largeImage: String?
@@ -18,6 +19,7 @@ struct Movie: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id, overview
+        case genreIDs = "genre_ids"
         case listImage = "backdrop_path"
         case movieTitle = "title"
         case largeImage = "poster_path"
