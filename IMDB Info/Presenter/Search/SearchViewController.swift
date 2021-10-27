@@ -20,6 +20,7 @@ class SearchViewController: UIViewController {
         searchCollectionView.dataSource = self
         searchCollectionView.delegate = self
         searchCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
+        searchCollectionView.register(UINib(nibName: "CollectionViewHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CollectionViewHeader")
         // Do any additional setup after loading the view.
     }
 
@@ -73,11 +74,34 @@ extension SearchViewController: UICollectionViewDataSource {
         movies.count
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if movies.count > 0 {
+            return 1
+        }
+        return 0
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = searchCollectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
         cell.makeView(movies[indexPath.row])
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if (kind == UICollectionView.elementKindSectionHeader) {
+                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionViewHeader", for: indexPath) as! CollectionViewHeader
+                headerView.makeNew(with: "Movies")
+                return headerView
+    }
+    fatalError()
+}
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 40)
+    }
 }
 

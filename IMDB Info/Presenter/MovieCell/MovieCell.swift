@@ -23,11 +23,6 @@ class MovieCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func makeNew(_ movie: Movie) {
         listImageView.kf.setImage(with: URL(string: "\(imagePrefix)\(movie.listImage ?? "")"))

@@ -38,11 +38,11 @@ extension NowInTheaters: UITableViewDelegate {
 
 extension NowInTheaters: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        movies.count/10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if indexPath.row == 0 && movies.count > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeaturedCell", for: indexPath) as! FeaturedCell
             cell.makeNew(movies[indexPath.row])
             return cell

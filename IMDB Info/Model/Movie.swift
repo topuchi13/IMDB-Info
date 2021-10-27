@@ -15,10 +15,12 @@ struct Movie: Codable {
     var overview: String
     var largeImage: String?
     var score: Double
+    var mediaType: String?
     
     
     enum CodingKeys: String, CodingKey {
         case id, overview
+        case mediaType = "media_type"
         case genreIDs = "genre_ids"
         case listImage = "backdrop_path"
         case movieTitle = "title"
