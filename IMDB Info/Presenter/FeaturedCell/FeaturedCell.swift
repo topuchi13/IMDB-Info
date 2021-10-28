@@ -22,7 +22,6 @@ class FeaturedCell: UITableViewCell {
         super.awakeFromNib()
         FetchGenreList.fetchGenreList(with: genreListUrl) { genreList in
             self.genreList = genreList.genres
-            print (genreList)
         }
     }
     

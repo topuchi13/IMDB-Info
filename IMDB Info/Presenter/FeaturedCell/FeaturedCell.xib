@@ -24,9 +24,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaL-65-NG0">
-                        <rect key="frame" x="141" y="510" width="50" height="50"/>
+                        <rect key="frame" x="143.5" y="510" width="45.5" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="a9u-pg-htB"/>
                             <constraint firstAttribute="height" constant="50" id="pcU-7C-5nl"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
