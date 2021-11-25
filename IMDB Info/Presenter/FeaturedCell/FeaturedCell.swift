@@ -23,6 +23,13 @@ class FeaturedCell: UITableViewCell {
         FetchGenreList.fetchGenreList(with: genreListUrl) { genreList in
             self.genreList = genreList.genres
         }
+        
+        self.showAnimatedGradientSkeleton()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.stopSkeletonAnimation()
+            self.hideSkeleton()
+        })
     }
     
     

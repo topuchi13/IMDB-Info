@@ -21,6 +21,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JUv-vv-jIN">
                             <rect key="frame" x="157.5" y="24" width="152.5" height="2"/>
@@ -28,6 +31,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="i8c-n8-tKF"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                     </subviews>
                 </stackView>

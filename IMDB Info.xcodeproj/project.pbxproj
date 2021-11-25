@@ -34,6 +34,7 @@
 		0DBF770C27291F9B00E66674 /* CollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF770A27291F9B00E66674 /* CollectionViewHeader.swift */; };
 		0DBF770D27291F9B00E66674 /* CollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DBF770B27291F9B00E66674 /* CollectionViewHeader.xib */; };
 		0DC250E02723E6DA0053952F /* NowInTheaters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DC250DF2723E6DA0053952F /* NowInTheaters.storyboard */; };
+		0DDBB744274FD02A00B4E2FC /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0DDBB743274FD02A00B4E2FC /* SkeletonView */; };
 		0DFF582F2720952C000A8913 /* DetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DFF582E2720952C000A8913 /* DetailsView.storyboard */; };
 		0DFF58312720954E000A8913 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFF58302720954E000A8913 /* DetailsView.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DDBB744274FD02A00B4E2FC /* SkeletonView in Frameworks */,
 				0D8CDED92720518100A186A2 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +251,7 @@
 			name = "IMDB Info";
 			packageProductDependencies = (
 				0D8CDED82720518100A186A2 /* Kingfisher */,
+				0DDBB743274FD02A00B4E2FC /* SkeletonView */,
 			);
 			productName = "IMDB Info";
 			productReference = 0D939B6A27204CE900070B71 /* IMDB Info.app */;
@@ -280,6 +283,7 @@
 			mainGroup = 0D939B6127204CE800070B71;
 			packageReferences = (
 				0D8CDED72720518100A186A2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				0DDBB742274FD02A00B4E2FC /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 0D939B6B27204CE900070B71 /* Products */;
 			projectDirPath = "";
@@ -566,6 +570,14 @@
 				kind = branch;
 			};
 		};
+		0DDBB742274FD02A00B4E2FC /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -573,6 +585,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0D8CDED72720518100A186A2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		0DDBB743274FD02A00B4E2FC /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0DDBB742274FD02A00B4E2FC /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

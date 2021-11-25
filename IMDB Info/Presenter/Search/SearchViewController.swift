@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class SearchViewController: UIViewController {
 
@@ -29,30 +30,46 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchCollectionView.showAnimatedGradientSkeleton()
         let text = searchText
+        if text.isEmpty {
+            searchCollectionView.stopSkeletonAnimation()
+            searchCollectionView.hideSkeleton()
+            movies.removeAll()
+        }
             let spacesFilteredText = text.replacingOccurrences(of: " ", with: "+")
             let searchQuary = SearchConstructor(with: spacesFilteredText)
             fetch.fetchMovieList(with: searchQuary) { movielist in
                 self.movies = movielist.results
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    self.searchCollectionView.stopSkeletonAnimation()
+                    self.searchCollectionView.hideSkeleton()
                     self.searchCollectionView.reloadData()
-                }
+                })
             }
     }
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        searchCollectionView.showAnimatedGradientSkeleton()
         if let text = searchBar.text {
+            if text.isEmpty {
+                searchCollectionView.stopSkeletonAnimation()
+                searchCollectionView.hideSkeleton()
+                movies.removeAll()
+            }
             let spacesFilteredText = text.replacingOccurrences(of: " ", with: "+")
             let searchQuary = SearchConstructor(with: spacesFilteredText)
             fetch.fetchMovieList(with: searchQuary) { movielist in
                 self.movies = movielist.results
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                    self.searchCollectionView.stopSkeletonAnimation()
+                    self.searchCollectionView.hideSkeleton()
                     self.searchCollectionView.reloadData()
-                }
+                })
             }
         }
     }
@@ -69,9 +86,17 @@ extension SearchViewController: UICollectionViewDelegate {
 }
 
 
-extension SearchViewController: UICollectionViewDataSource {
+extension SearchViewController: SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "MovieCollectionViewCell"
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         movies.count
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        20
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

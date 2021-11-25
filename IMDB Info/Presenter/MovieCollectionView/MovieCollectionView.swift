@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class MovieCollectionView: UITableViewCell {
     
@@ -19,6 +20,13 @@ class MovieCollectionView: UITableViewCell {
         movieCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell")
         movieCollectionView.dataSource = self
         movieCollectionView.delegate = self
+        movieCollectionView.showAnimatedGradientSkeleton()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.movieCollectionView.stopSkeletonAnimation()
+            self.movieCollectionView.hideSkeleton()
+            self.movieCollectionView.reloadData()
+        })
     }
     
 }
@@ -33,8 +41,16 @@ extension MovieCollectionView: UICollectionViewDelegate {
     }
 }
 
-extension MovieCollectionView: UICollectionViewDataSource {
+extension MovieCollectionView: SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        "MovieCollectionViewCell"
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        movies.count
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         movies.count
     }
     

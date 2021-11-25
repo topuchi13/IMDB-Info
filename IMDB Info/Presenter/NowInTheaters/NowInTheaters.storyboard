@@ -18,7 +18,10 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8wz-n6-pok">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KWF-1b-Khf"/>
@@ -29,6 +32,9 @@
                             <constraint firstItem="KWF-1b-Khf" firstAttribute="bottom" secondItem="8wz-n6-pok" secondAttribute="bottom" id="tH6-1x-eEO"/>
                             <constraint firstItem="KWF-1b-Khf" firstAttribute="trailing" secondItem="8wz-n6-pok" secondAttribute="trailing" id="ygd-JI-2fQ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <tabBarItem key="tabBarItem" title="Now in Theaters" image="book.fill" catalog="system" id="t8o-l6-aNz"/>
                     <connections>
